@@ -6,6 +6,8 @@ const STATIC_ASSETS_PATH = path.resolve(`${__dirname}/../../static`);
 
 const app = express();
 
+const startTime = process.hrtime();
+
 // Serve front end assets which have been built by webpack
 app.use("/static", express.static(STATIC_ASSETS_PATH));
 
