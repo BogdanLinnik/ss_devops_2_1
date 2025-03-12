@@ -21,4 +21,9 @@ app.get("/", (request, response) => {
 	`);
 });
 
-app.listen(PORT, '0.0.0.0', () => console.log(`Example app listening on port ${PORT}.\n\nLoad it in your browser at http://localhost:${PORT}`))
+app.listen(PORT, '0.0.0.0', () => {
+	const diff = process.hrtime(startTime);
+	const startupTime = (diff[0] * 1e9 + diff[1]) / 1e6; // Convert to milliseconds
+	console.log(`Server started in ${startupTime.toFixed(2)} ms.`);
+	console.log(`Example app listening on port ${PORT}.\n\nLoad it in your browser at http://localhost:${PORT}`);
+});
